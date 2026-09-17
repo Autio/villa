@@ -1,15 +1,14 @@
 {
-  "id": "siargao-01",
-  "name": "Villa Together",
-  "location": { "country": "Philippines", "setting": "subtropical island", "indoorAreaM2": 120 },
-  "aesthetics": ["subtropical", "cyberpunk"],
+  "schemaVersion": 2,
+  "world": {"id":"siargao-01","name":"Villa Together","indoorAreaM2":120,"coordinateSystem":"x-y-up-z","defaultTime":16},
   "rooms": [
-    { "id": "living", "name": "Living room", "areaM2": 31, "purpose": "Gather, eat, watch storms roll in", "components": ["cloud-sofa", "low-table", "areca-palm", "rattan-chair", "floor-lamp"], "interactions": ["select", "rename", "decorate"] },
-    { "id": "pma", "name": "PMA’s room", "areaM2": 16, "purpose": "Sleep, draw, read by the window", "components": ["platform-bed", "drawing-desk", "monstera"], "interactions": ["select", "rename", "decorate"] },
-    { "id": "keisha", "name": "Keisha’s room", "areaM2": 15, "purpose": "Rest, make music, catch sunrise", "components": ["day-bed", "record-player", "woven-rug"], "interactions": ["select", "rename", "decorate"] },
-    { "id": "movie", "name": "Movie lounge", "areaM2": 19, "purpose": "Films, games, late-night karaoke", "components": ["modular-sofa", "projector", "speakers"], "interactions": ["select", "rename", "decorate"] },
-    { "id": "kitchen", "name": "Kitchen", "areaM2": 21, "purpose": "Cook, snack, leave notes", "components": ["fridge", "island", "rice-cooker", "herb-pots"], "interactions": ["select", "decorate", "leave-fridge-note"] }
+    {"id":"pma","name":"PMA’s room","bounds":{"x":[-10.5,-3.5],"z":[-7.5,-0.5]}},
+    {"id":"kitchen","name":"Kitchen","bounds":{"x":[-3.5,3.5],"z":[-7.5,-0.5]}},
+    {"id":"keisha","name":"Keisha’s room","bounds":{"x":[3.5,10.5],"z":[-7.5,-0.5]}},
+    {"id":"living","name":"Living room","bounds":{"x":[-7.5,2.5],"z":[-0.3,6.7]}},
+    {"id":"movie","name":"Movie lounge","bounds":{"x":[2.5,7.5],"z":[-0.3,6.7]}}
   ],
-  "social": { "presence": true, "inviteMode": "private-link", "sharedObjects": ["fridge-notes"] },
-  "schemaVersion": 1
+  "objectTypes": ["sofa","chair","bed","table","plant","fridge","tv","lamp"],
+  "objectShape": {"id":"string","type":"objectTypes","name":"string","room":"room id","position":{"x":"number","z":"number"},"rotation":"radians","color":"#RRGGBB"},
+  "aiTools": ["read_villa_world","create_villa_objects","update_villa_object","remove_villa_object","set_villa_view"]
 }
