@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "world": {"id":"siargao-01","name":"Villa Together","indoorAreaM2":120,"coordinateSystem":"x-y-up-z","defaultTime":16},
-  "plan": {"name":"Bayani Villa","style":"modern subtropical Philippine","bedrooms":2,"bathrooms":2},
+  "world": {"id":"siargao-01","name":"Villa Together","indoorAreaM2":155,"coordinateSystem":"x-y-up-z","defaultTime":16},
+  "plan": {"name":"Bayani Villa","style":"modern subtropical Philippine","bedrooms":2,"bathrooms":2,"spatialScale":{"x":1.16,"z":1.14}},
   "rooms": [
     {"id":"master","name":"PMA’s room","bounds":{"x":[-10.1,-4.7],"z":[-6.3,-0.1]}},
     {"id":"ensuite","name":"Master ensuite","bounds":{"x":[-10.1,-4.7],"z":[0,3]}},
