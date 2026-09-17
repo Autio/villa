@@ -1,12 +1,19 @@
 {
   "schemaVersion": 2,
   "world": {"id":"siargao-01","name":"Villa Together","indoorAreaM2":120,"coordinateSystem":"x-y-up-z","defaultTime":16},
+  "plan": {"name":"Bayani Villa","style":"modern subtropical Philippine","bedrooms":2,"bathrooms":2},
   "rooms": [
-    {"id":"pma","name":"PMA’s room","bounds":{"x":[-10.5,-3.5],"z":[-7.5,-0.5]}},
-    {"id":"kitchen","name":"Kitchen","bounds":{"x":[-3.5,3.5],"z":[-7.5,-0.5]}},
-    {"id":"keisha","name":"Keisha’s room","bounds":{"x":[3.5,10.5],"z":[-7.5,-0.5]}},
-    {"id":"living","name":"Living room","bounds":{"x":[-7.5,2.5],"z":[-0.3,6.7]}},
-    {"id":"movie","name":"Movie lounge","bounds":{"x":[2.5,7.5],"z":[-0.3,6.7]}}
+    {"id":"master","name":"PMA’s room","bounds":{"x":[-10.1,-4.7],"z":[-6.3,-0.1]}},
+    {"id":"ensuite","name":"Master ensuite","bounds":{"x":[-10.1,-4.7],"z":[0,3]}},
+    {"id":"closet","name":"Walk-in closet","bounds":{"x":[-10.1,-4.7],"z":[3.1,5.8]}},
+    {"id":"living","name":"Living area","bounds":{"x":[-3.15,5.15],"z":[-4.1,2.3]}},
+    {"id":"dining","name":"Dining area","bounds":{"x":[-4.65,0.05],"z":[-5.85,-2.65]}},
+    {"id":"kitchen","name":"Kitchen","bounds":{"x":[-4.7,2.5],"z":[1.85,5.45]}},
+    {"id":"foyer","name":"Entry & foyer","bounds":{"x":[0.6,3.8],"z":[5.45,7.45]}},
+    {"id":"guest","name":"Keisha’s room","bounds":{"x":[4.65,9.55],"z":[-6.3,-0.1]}},
+    {"id":"bath","name":"Guest / common bathroom","bounds":{"x":[4.65,9.55],"z":[0,3]}},
+    {"id":"laundry","name":"Laundry & storage","bounds":{"x":[4.65,9.55],"z":[3.1,5.8]}},
+    {"id":"terrace","name":"Covered terrace","bounds":{"x":[-5.9,6.3],"z":[-9.55,-6.45]}}
   ],
   "objectTypes": ["sofa","chair","bed","table","plant","fridge","tv","lamp"],
   "objectShape": {"id":"string","type":"objectTypes","name":"string","room":"room id","position":{"x":"number","z":"number"},"rotation":"radians","color":"#RRGGBB"},
