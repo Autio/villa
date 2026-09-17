@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Villa Together — Isometric Villa Simulator</title>
+  <meta name="description" content="Build, decorate, and share a subtropical isometric dream villa." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%230c2f35' d='M32 4 58 19 32 34 6 19z'/%3E%3Cpath fill='%23f1a95b' d='M6 19v27l26 14V34z'/%3E%3Cpath fill='%230f6b67' d='M58 19v27L32 60V34z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Villa Together home"><span class="brandmark">VT</span><span>Villa Together</span></a>
+    <div class="status"><span class="pulse"></span><span id="saveStatus">Saved just now</span></div>
+    <div class="top-actions">
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle ambient sound">◌</button>
+      <button class="share-btn" id="shareBtn">Invite friends <span>↗</span></button>
+      <div class="avatar-stack" aria-label="Friends visiting"><span class="avatar a1">P</span><span class="avatar a2">K</span><span class="avatar a3">M</span></div>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="left-rail" aria-label="Villa tools">
+      <button class="rail-btn active" data-tool="explore"><span>⌁</span><small>Explore</small></button>
+      <button class="rail-btn" data-tool="rooms"><span>◇</span><small>Rooms</small></button>
+      <button class="rail-btn" data-tool="decorate"><span>✦</span><small>Decorate</small></button>
+      <button class="rail-btn" data-tool="people"><span>♧</span><small>People</small></button>
+      <button class="rail-btn" data-tool="notes"><span>▤</span><small>Notes</small></button>
+      <div class="rail-spacer"></div>
+      <button class="rail-btn" id="resetBtn"><span>↺</span><small>Reset</small></button>
+    </aside>
+
+    <section class="scene-wrap" id="sceneWrap">
+      <div class="scene-toolbar">
+        <div class="mode-switch" role="group" aria-label="Villa aesthetic">
+          <button class="mode active" data-mode="tropical">Subtropical</button>
+          <button class="mode" data-mode="cyberpunk">Cyberpunk</button>
+        </div>
+        <div class="zoom-tools">
+          <button id="zoomOut" aria-label="Zoom out">−</button><span id="zoomLabel">100%</span><button id="zoomIn" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+
+      <div class="scene" id="scene">
+        <img id="villaArt" src="assets/villa-isometric.png" alt="Isometric cutaway of a tropical Philippine villa with visible rooms, pool and gardens" />
+        <div class="scanlines"></div>
+        <button class="hotspot selected" data-room="living" style="--x:53%;--y:58%"><span>Living room</span></button>
+        <button class="hotspot" data-room="pma" style="--x:34%;--y:39%"><span>PMA’s room</span></button>
+        <button class="hotspot" data-room="keisha" style="--x:68%;--y:35%"><span>Keisha’s room</span></button>
+        <button class="hotspot" data-room="movie" style="--x:69%;--y:61%"><span>Movie lounge</span></button>
+        <button class="hotspot note-hotspot" data-room="kitchen" style="--x:42%;--y:57%"><span>Kitchen · 3 notes</span></button>
+        <div class="friend-cursor" style="--x:61%;--y:49%"><span class="avatar a2">K</span><em>Keisha is here</em></div>
+      </div>
+
+      <div class="scene-caption"><span>Lot 01 · Siargao</span><span>120 m² indoors · 3 friends home</span></div>
+    </section>
+
+    <aside class="inspector" id="inspector">
+      <div class="inspector-head">
+        <div><p class="eyebrow">Selected room</p><h1 id="roomName">Living room</h1></div>
+        <button class="close-inspector" aria-label="Close panel">×</button>
+      </div>
+      <div class="room-meta"><span id="roomArea">31 m²</span><span id="roomMood">Warm + social</span></div>
+
+      <section class="panel-section">
+        <div class="section-head"><h2>Room details</h2><button id="renameBtn">Rename</button></div>
+        <label class="field">Purpose<input id="purposeInput" value="Gather, eat, watch storms roll in" /></label>
+        <label class="field">Flooring<select id="flooringSelect"><option>Polished concrete</option><option>Local narra wood</option><option>Terrazzo</option><option>Dark glass tile</option></select></label>
+      </section>
+
+      <section class="panel-section">
+        <div class="section-head"><h2>In this room</h2><span id="itemCount">5 items</span></div>
+        <div class="items" id="roomItems"></div>
+        <button class="add-item" id="addItemBtn"><span>＋</span> Add an object</button>
+      </section>
+
+      <section class="panel-section notes-panel" id="notesPanel">
+        <div class="section-head"><h2>Fridge notes</h2><span>Shared</span></div>
+        <div class="notes" id="notesList"></div>
+        <form id="noteForm"><input id="noteInput" maxlength="90" placeholder="Leave a note…" aria-label="New fridge note"><button>Post</button></form>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="objectDialog">
+    <form method="dialog" class="dialog-card">
+      <div class="dialog-head"><div><p class="eyebrow">Object library</p><h2>Add to <span id="dialogRoom">Living room</span></h2></div><button value="cancel" aria-label="Close">×</button></div>
+      <div class="object-grid" id="objectGrid"></div>
+    </form>
+  </dialog>
+
+  <dialog id="shareDialog">
+    <form method="dialog" class="dialog-card share-card">
+      <button value="cancel" class="dialog-x" aria-label="Close">×</button>
+      <div class="share-symbol">⌂</div><p class="eyebrow">Your villa is ready for company</p><h2>Invite people into the house</h2><p class="muted">Anyone with this private link can look around and leave fridge notes. Editing permissions can come next.</p>
+      <div class="copy-row"><input id="shareLink" readonly value="https://villa-together.example/siargao-01"><button type="button" id="copyBtn">Copy link</button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

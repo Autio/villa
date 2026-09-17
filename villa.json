@@ -1,0 +1,15 @@
+{
+  "id": "siargao-01",
+  "name": "Villa Together",
+  "location": { "country": "Philippines", "setting": "subtropical island", "indoorAreaM2": 120 },
+  "aesthetics": ["subtropical", "cyberpunk"],
+  "rooms": [
+    { "id": "living", "name": "Living room", "areaM2": 31, "purpose": "Gather, eat, watch storms roll in", "components": ["cloud-sofa", "low-table", "areca-palm", "rattan-chair", "floor-lamp"], "interactions": ["select", "rename", "decorate"] },
+    { "id": "pma", "name": "PMA’s room", "areaM2": 16, "purpose": "Sleep, draw, read by the window", "components": ["platform-bed", "drawing-desk", "monstera"], "interactions": ["select", "rename", "decorate"] },
+    { "id": "keisha", "name": "Keisha’s room", "areaM2": 15, "purpose": "Rest, make music, catch sunrise", "components": ["day-bed", "record-player", "woven-rug"], "interactions": ["select", "rename", "decorate"] },
+    { "id": "movie", "name": "Movie lounge", "areaM2": 19, "purpose": "Films, games, late-night karaoke", "components": ["modular-sofa", "projector", "speakers"], "interactions": ["select", "rename", "decorate"] },
+    { "id": "kitchen", "name": "Kitchen", "areaM2": 21, "purpose": "Cook, snack, leave notes", "components": ["fridge", "island", "rice-cooker", "herb-pots"], "interactions": ["select", "decorate", "leave-fridge-note"] }
+  ],
+  "social": { "presence": true, "inviteMode": "private-link", "sharedObjects": ["fridge-notes"] },
+  "schemaVersion": 1
+}
